@@ -15,7 +15,7 @@ defmodule Raagtime.Router do
   scope "/", Raagtime do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", RagaController, :index
 
     resources "/ragas", RagaController
   end
