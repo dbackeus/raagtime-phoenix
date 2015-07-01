@@ -7,7 +7,7 @@ defmodule Raagtime.RagaController do
 
   def index(conn, _params) do
     ragas = Repo.all(Raga)
-    render(conn, "index.html", ragas: ragas)
+    render(conn, "index.html", ragas: ragas, title: "Listing Ragas")
   end
 
   def new(conn, _params) do
@@ -31,7 +31,7 @@ defmodule Raagtime.RagaController do
 
   def show(conn, %{"id" => id}) do
     raga = Repo.get!(Raga, id)
-    render(conn, "show.html", raga: raga)
+    render(conn, "show.html", raga: raga, title: "Raag #{raga.title}")
   end
 
   def edit(conn, %{"id" => id}) do
