@@ -13,7 +13,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :raagtime, Raagtime.Endpoint,
   http: [port: {:system, "PORT"}],
-  url: [host: "example.com", port: 80],
+  url: [host: System.get_env("HOST"), port: 443],
   cache_static_manifest: "priv/static/manifest.json"
 
 # ## SSL Support
@@ -47,6 +47,15 @@ config :logger, level: :info
 #     config :raagtime, Raagtime.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+# In this file, we keep production configuration that
+# you likely want to automate and keep it away from
+# your version control system.
+config :raagtime, Raagtime.Endpoint,
+  secret_key_base: System.get_env("SECRET_KEY_BASE")
+
+# Configure your database
+config :raagtime, Raagtime.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: System.get_env("DATABASE_URL"),
+  size: System.get_env("DATABASE_POOL") || 20 # The amount of database connections in the pool
+
