@@ -26,10 +26,10 @@
         <%= link raga.title, to: "/ragas/#{raga.id}" %>
       </td>
       <td class="time">
-        <%= link raga.time || "", to: "#" %>
+        <%= link pretty_time(raga.time), to: "#" %>
       </td>
       <td class="chakra" data-sort-value="<%# raga.chakra.present? ? raga.chakra.split("_").last : "zzz" %>">
-        <%# image if chakra is there %>
+        <%= chakra_icon(raga.chakra) %>
       </td>
       <td class="thaat">
         <%= link raga.thaat || "", to: "#" %>
