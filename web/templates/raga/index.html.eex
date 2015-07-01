@@ -1,0 +1,50 @@
+<h2>Listing ragas</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Thaat</th>
+      <th>Ascending scale</th>
+      <th>Descending scale</th>
+      <th>Pakad</th>
+      <th>Drone</th>
+      <th>Samvaadi</th>
+      <th>Vaadi</th>
+      <th>Time</th>
+      <th>Chakra</th>
+      <th>Spotify playlist url</th>
+      <th>Description</th>
+      <th>Slug</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for raga <- @ragas do %>
+    <tr>
+      <td><%= raga.title %></td>
+      <td><%= raga.thaat %></td>
+      <td><%= raga.ascending_scale %></td>
+      <td><%= raga.descending_scale %></td>
+      <td><%= raga.pakad %></td>
+      <td><%= raga.drone %></td>
+      <td><%= raga.samvaadi %></td>
+      <td><%= raga.vaadi %></td>
+      <td><%= raga.time %></td>
+      <td><%= raga.chakra %></td>
+      <td><%= raga.spotify_playlist_url %></td>
+      <td><%= raga.description %></td>
+      <td><%= raga.slug %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: raga_path(@conn, :show, raga), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: raga_path(@conn, :edit, raga), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: raga_path(@conn, :delete, raga), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New raga", to: raga_path(@conn, :new) %>

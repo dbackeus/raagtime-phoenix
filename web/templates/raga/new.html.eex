@@ -1,0 +1,6 @@
+<h2>New raga</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: raga_path(@conn, :create) %>
+
+<%= link "Back", to: raga_path(@conn, :index) %>

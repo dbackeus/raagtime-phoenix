@@ -1,0 +1,72 @@
+<h2>Show raga</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @raga.title %>
+  </li>
+
+  <li>
+    <strong>Thaat:</strong>
+    <%= @raga.thaat %>
+  </li>
+
+  <li>
+    <strong>Ascending scale:</strong>
+    <%= @raga.ascending_scale %>
+  </li>
+
+  <li>
+    <strong>Descending scale:</strong>
+    <%= @raga.descending_scale %>
+  </li>
+
+  <li>
+    <strong>Pakad:</strong>
+    <%= @raga.pakad %>
+  </li>
+
+  <li>
+    <strong>Drone:</strong>
+    <%= @raga.drone %>
+  </li>
+
+  <li>
+    <strong>Samvaadi:</strong>
+    <%= @raga.samvaadi %>
+  </li>
+
+  <li>
+    <strong>Vaadi:</strong>
+    <%= @raga.vaadi %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @raga.time %>
+  </li>
+
+  <li>
+    <strong>Chakra:</strong>
+    <%= @raga.chakra %>
+  </li>
+
+  <li>
+    <strong>Spotify playlist url:</strong>
+    <%= @raga.spotify_playlist_url %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @raga.description %>
+  </li>
+
+  <li>
+    <strong>Slug:</strong>
+    <%= @raga.slug %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: raga_path(@conn, :index) %>

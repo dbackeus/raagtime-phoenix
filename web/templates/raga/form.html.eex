@@ -1,0 +1,81 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :title, "Title" %>
+    <%= text_input f, :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :thaat, "Thaat" %>
+    <%= text_input f, :thaat, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ascending_scale, "Ascending scale" %>
+    <%= text_input f, :ascending_scale, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :descending_scale, "Descending scale" %>
+    <%= text_input f, :descending_scale, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :pakad, "Pakad" %>
+    <%= text_input f, :pakad, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :drone, "Drone" %>
+    <%= text_input f, :drone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :samvaadi, "Samvaadi" %>
+    <%= text_input f, :samvaadi, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :vaadi, "Vaadi" %>
+    <%= text_input f, :vaadi, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :time, "Time" %>
+    <%= text_input f, :time, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :chakra, "Chakra" %>
+    <%= text_input f, :chakra, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :spotify_playlist_url, "Spotify playlist url" %>
+    <%= text_input f, :spotify_playlist_url, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :description, "Description" %>
+    <%= text_input f, :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :slug, "Slug" %>
+    <%= text_input f, :slug, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
