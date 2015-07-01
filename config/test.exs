@@ -12,8 +12,6 @@ config :logger, level: :warn
 # Configure your database
 config :raagtime, Raagtime.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
   database: "raagtime_test",
   pool: Ecto.Adapters.SQL.Sandbox, # Use a sandbox for transactional testing
   size: 1
