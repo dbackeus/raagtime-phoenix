@@ -1,7 +1,7 @@
 <h2>Rāgas</h2>
 
 
-<table class="table" id="ragas">
+<table class="table" data-stupidtable id="ragas">
   <thead>
     <tr>
       <th class="title" data-sort="string">
@@ -28,8 +28,8 @@
       <td class="time">
         <%= link pretty_time(raga.time), to: "#" %>
       </td>
-      <td class="chakra" data-sort-value="<%# raga.chakra.present? ? raga.chakra.split("_").last : "zzz" %>">
-        <%= chakra_icon(raga.chakra) %>
+      <td class="chakra" data-sort-value="<%= chakra_sort_value raga.chakra %>">
+        <%= chakra_icon raga.chakra %>
       </td>
       <td class="thaat">
         <%= link raga.thaat || "", to: "#" %>

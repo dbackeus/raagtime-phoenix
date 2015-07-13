@@ -98,6 +98,10 @@ p.suggestion { margin: 0px 0; }
     cursor:pointer;
   }
 
+  tbody tr:nth-child(odd) {
+    background: #EEE;
+  }
+
   tr.even {
     background: #EEE;
   }

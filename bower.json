@@ -1,0 +1,6 @@
+{
+  "name": "raagtime-phoenix",
+  "dependencies": {
+    "jquery-stupid-table": "~1.0.1"
+  }
+}

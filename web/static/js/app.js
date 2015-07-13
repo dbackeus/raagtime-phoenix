@@ -7,7 +7,12 @@ import {Socket} from "phoenix"
 //   console.log("Success!")
 // })
 
-let App = {
+class App {
+  static init() {
+    $("[data-stupidtable]").stupidtable()
+  }
 }
+
+$(function() { App.init() })
 
 export default App
