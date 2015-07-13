@@ -13,9 +13,10 @@
 
   <body>
     <div class="container" role="main">
+      <h1><a href="/">Raagtime - From Dawn till Dusk</a></h1>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
+      <img src="/images/swirl.png" class="swirl"></img>
       <%= @inner %>
     </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
