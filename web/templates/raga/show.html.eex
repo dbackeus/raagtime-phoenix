@@ -1,72 +1,61 @@
-<h2>Show raga</h2>
+<h2><%= @title %></h2>
 
-<ul>
+<%= if @raga.time |> present? do %>
+  <p>
+    <strong>Time</strong><br>
+    <%= pretty_time @raga.time %>
+  </p>
+<% end %>
 
-  <li>
-    <strong>Title:</strong>
-    <%= @raga.title %>
-  </li>
+<%= if @raga.chakra |> present? do %>
+  <p>
+    <strong>Chakra</strong><br>
+    <%= pretty_chakra @raga.chakra %>
+  </p>
+  <%= chakra_image @raga.chakra %>
+<% end %>
 
-  <li>
-    <strong>Thaat:</strong>
-    <%= @raga.thaat %>
-  </li>
+<p>
+  <strong>Ascending Scale</strong><br>
+  <%= @raga.ascending_scale %>
+</p>
 
-  <li>
-    <strong>Ascending scale:</strong>
-    <%= @raga.ascending_scale %>
-  </li>
+<p>
+  <strong>Descending Scale</strong><br>
+  <%= @raga.descending_scale %>
+</p>
 
-  <li>
-    <strong>Descending scale:</strong>
-    <%= @raga.descending_scale %>
-  </li>
-
-  <li>
-    <strong>Pakad:</strong>
+<%= if @raga.pakad |> present? do %>
+  <p>
+    <strong>Pakad</strong><br>
     <%= @raga.pakad %>
-  </li>
+  </p>
+<% end %>
 
-  <li>
-    <strong>Drone:</strong>
+<%= if @raga.drone |> present? do %>
+  <p>
+    <strong>Drone</strong><br>
     <%= @raga.drone %>
-  </li>
+  </p>
+<% end %>
 
-  <li>
-    <strong>Samvaadi:</strong>
+<%= if @raga.samvaadi |> present? do %>
+  <p>
+    <strong>Samvaadi</strong><br>
     <%= @raga.samvaadi %>
-  </li>
+  </p>
+<% end %>
 
-  <li>
-    <strong>Vaadi:</strong>
+<%= if @raga.vaadi |> present? do %>
+  <p>
+    <strong>Vaadi</strong><br>
     <%= @raga.vaadi %>
-  </li>
+  </p>
+<% end %>
 
-  <li>
-    <strong>Time:</strong>
-    <%= @raga.time %>
-  </li>
-
-  <li>
-    <strong>Chakra:</strong>
-    <%= @raga.chakra %>
-  </li>
-
-  <li>
-    <strong>Spotify playlist url:</strong>
-    <%= @raga.spotify_playlist_url %>
-  </li>
-
-  <li>
-    <strong>Description:</strong>
-    <%= @raga.description %>
-  </li>
-
-  <li>
-    <strong>Slug:</strong>
-    <%= @raga.slug %>
-  </li>
-
-</ul>
+<%= if @raga.spotify_playlist_url do %>
+  <a name="spotify"></a>
+  <iframe class="spotify-playlist" height="480" src="https://embed.spotify.com/?uri=<%= @raga.spotify_playlist_url %>" width="100%" frameborder="0" allowtransparency="true"></iframe>
+<% end %>
 
 <%= link "Back", to: raga_path(@conn, :index) %>
