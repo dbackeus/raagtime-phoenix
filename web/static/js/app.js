@@ -1,5 +1,7 @@
 import {Socket} from "phoenix"
 
+import ReactInitializer from "./react-initializer"
+
 // let socket = new Socket("/ws")
 // socket.connect()
 // let chan = socket.chan("topic:subtopic", {})
