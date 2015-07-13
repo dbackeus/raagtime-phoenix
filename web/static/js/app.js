@@ -1,5 +1,10 @@
 import {Socket} from "phoenix"
 
+jQuery.fn.random = function() {
+  var randomIndex = Math.floor(Math.random() * this.length)
+  return jQuery(this[randomIndex])
+}
+
 import ReactInitializer from "./react-initializer"
 
 // let socket = new Socket("/ws")
