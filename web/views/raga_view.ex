@@ -1,6 +1,11 @@
 defmodule Raagtime.RagaView do
   use Raagtime.Web, :view
 
+  def sort_arrow do
+    raw "<img class='sort-arrow' src='/images/sort_arrow.gif'></img>"
+  end
+
+
   @time_map %{
     "1" => "06-09",
     "2" => "09-12",
@@ -42,6 +47,6 @@ defmodule Raagtime.RagaView do
 
   def chakra_icon(chakra) do
     chakra = chakra |> String.split("_") |> List.last
-    raw "<img src='/images/chakra-icon-#{chakra}.png'></img>"
+    raw "<img class='chakra-icon' src='/images/chakra-icon-#{chakra}.png'></img>"
   end
 end

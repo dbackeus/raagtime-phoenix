@@ -1,20 +1,23 @@
 <h2>Rāgas</h2>
 
-
 <table class="table" data-stupidtable id="ragas">
   <thead>
     <tr>
       <th class="title" data-sort="string">
         <div class="left">Title</div>
+        <%= sort_arrow %>
       </th>
       <th class="time" data-sort="string">
         <div class="left">Time</div>
+        <%= sort_arrow %>
       </th>
       <th class="chakra" data-sort="string">
         <div class="left">Chakra</div>
+        <%= sort_arrow %>
       </th>
       <th class="thaat" data-sort="string">
         <div class="left">Thaat</div>
+        <%= sort_arrow %>
       </th>
       <th class="spotify"></th>
     </tr>
@@ -31,7 +34,7 @@
       <td class="chakra" data-sort-value="<%= chakra_sort_value raga.chakra %>">
         <%= chakra_icon raga.chakra %>
       </td>
-      <td class="thaat">
+      <td class="thaat" data-sort-value="<%= raga.thaat || "zzz" %>">
         <%= link raga.thaat || "", to: "#" %>
       </td>
       <td class="spotify">
