@@ -30,8 +30,8 @@ defmodule Raagtime.RagaController do
     end
   end
 
-  def show(conn, %{"id" => id}) do
-    raga = Repo.get!(Raga, id)
+  def show(conn, %{"id" => slug}) do
+    raga = Repo.get_by!(Raga, slug: slug)
     render(conn, "show.html", raga: raga, title: "Raag #{raga.title}")
   end
 

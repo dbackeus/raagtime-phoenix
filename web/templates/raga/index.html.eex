@@ -26,7 +26,7 @@
 <%= for raga <- @ragas do %>
     <tr data-time="<%= raga.time %>" data-thaat="<%= raga.thaat %>">
       <td class="title">
-        <%= link raga.title, to: "/ragas/#{raga.id}" %>
+        <%= link raga.title, to: "/ragas/#{raga.slug}" %>
       </td>
       <td class="time">
         <%= link pretty_time(raga.time), to: "#" %>
