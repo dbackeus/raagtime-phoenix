@@ -1,3 +1,7 @@
+<div data-react-class="RagaSuggester"></div>
+
+<img src="/images/swirl.png" class="swirl"></img>
+
 <h2>Rāgas</h2>
 
 <table class="table" data-stupidtable id="ragas">

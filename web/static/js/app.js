@@ -5,6 +5,7 @@ jQuery.fn.random = function() {
   return jQuery(this[randomIndex])
 }
 
+import RagaSuggester from "./raga-suggester"
 import ReactInitializer from "./react-initializer"
 
 // let socket = new Socket("/ws")
