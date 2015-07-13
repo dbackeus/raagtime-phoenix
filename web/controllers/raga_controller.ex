@@ -6,7 +6,8 @@ defmodule Raagtime.RagaController do
   plug :scrub_params, "raga" when action in [:create, :update]
 
   def index(conn, _params) do
-    ragas = Repo.all(Raga)
+    query = from(r in Raga, order_by: r.title)
+    ragas = Repo.all(query)
     render(conn, "index.html", ragas: ragas, title: "Listing Ragas")
   end
 
