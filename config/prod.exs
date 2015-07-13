@@ -32,7 +32,7 @@ config :raagtime, Raagtime.Endpoint,
 # disk for the key and cert.
 
 # Do not print debug messages in production
-config :logger, level: :info
+config :logger, level: System.get_env("LOG_LEVEL") |> String.to_atom
 
 # ## Using releases
 #
