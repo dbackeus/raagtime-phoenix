@@ -38,7 +38,11 @@
         <%= link raga.thaat || "", to: "#" %>
       </td>
       <td class="spotify">
-        <%# spotify / youtube icons %>
+        <%= if raga.spotify_playlist_url do %>
+          <a href="/ragas/<%= raga.slug %>#spotify" title="Spotify playlist">
+            <img src="/images/spotify_icon_small.png" alt=""></img>
+          </a>
+        <% end %>
       </td>
     </tr>
 <% end %>
