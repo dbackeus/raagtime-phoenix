@@ -81,6 +81,8 @@ defmodule Raagtime.RagaView do
   def present?(""), do: false
   def present?(_), do: true
 
+  def even?(integer), do: rem(integer, 2) == 0
+
   # "left_nabhi" |> "nabhi"
   defp actual_chakra(chakra) do
     chakra |> String.split("_") |> List.last

@@ -8,8 +8,15 @@ window.RagaSuggester = React.createClass
     <div className="raga-suggester">
       <p className="raga-suggestion">
         It's {@timeAsString()} o clock. Why not try raga <a href={raga.attr("href")}>{raga.html()}</a>.
+        Or <a href="#" onClick={@handleFilter}>filter all ragas</a> suitable for this time.
       </p>
     </div>
+
+  handleFilter: (e) ->
+    e.preventDefault()
+
+    $("[data-time=#{@currentPrahar()}] [data-filter=time]").click()
+    $("html, body").animate { scrollTop: $("h2").offset().top - 20 }, 500
 
   timeAsString: ->
     hours = @zeroed @state.time.getHours()

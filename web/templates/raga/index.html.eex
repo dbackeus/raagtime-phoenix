@@ -4,7 +4,17 @@
 
 <h2>Rāgas</h2>
 
-<table class="table" data-stupidtable id="ragas">
+<div class="filter">
+  <p>
+    Filtering on
+    <span class="filter-name">
+      time 09-12
+    </span>
+    <%= link "remove filter", to: "/", class: "filter-remover" %>.
+  </p>
+</div>
+
+<table class="table" data-stupidtable data-filterable-table data-filterable-summary-selector=".filter" id="ragas">
   <thead>
     <tr>
       <th class="title" data-sort="string">
@@ -27,19 +37,19 @@
     </tr>
   </thead>
   <tbody>
-<%= for raga <- @ragas do %>
-    <tr data-time="<%= raga.time %>" data-thaat="<%= raga.thaat %>">
+<%= for {raga, index} <- Enum.with_index @ragas do %>
+    <tr class="<%= index |> even? && "even" || "odd" %>" data-time="<%= raga.time %>" data-thaat="<%= raga.thaat %>">
       <td class="title">
         <%= link raga.title, to: "/ragas/#{raga.slug}" %>
       </td>
       <td class="time">
-        <%= link pretty_time(raga.time), to: "#" %>
+        <%= link pretty_time(raga.time), to: "#", "data-filter": "time" %>
       </td>
       <td class="chakra" data-sort-value="<%= chakra_sort_value raga.chakra %>">
         <%= chakra_icon raga.chakra %>
       </td>
       <td class="thaat" data-sort-value="<%= raga.thaat || "zzz" %>">
-        <%= link raga.thaat || "", to: "#" %>
+        <%= link raga.thaat || "", to: "#", "data-filter": "thaat" %>
       </td>
       <td class="spotify">
         <%= if raga.spotify_playlist_url do %>

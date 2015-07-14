@@ -27,7 +27,21 @@ body {
   }
 }
 
-a { color: #000; font-weight: bold; text-decoration: none; }
+a {
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+
+  &:focus {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  &:hover {
+    color: #2a6496;
+    text-decoration: underline;
+  }
+}
 
 h1 {
   font-family: "Tenor Sans", "Trebuchet MS", Helvetica, Arial, sans-serif;
@@ -108,11 +122,7 @@ p.suggestion { margin: 0px 0; }
     cursor:pointer;
   }
 
-  tbody tr:nth-child(odd) {
-    background: #EEE;
-  }
-
-  tr.even {
+  .even {
     background: #EEE;
   }
 
