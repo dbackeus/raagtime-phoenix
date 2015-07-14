@@ -57,5 +57,3 @@
   <a name="spotify"></a>
   <iframe class="spotify-playlist" height="480" src="https://embed.spotify.com/?uri=<%= @raga.spotify_playlist_url %>" width="100%" frameborder="0" allowtransparency="true"></iframe>
 <% end %>
-
-<%= link "Back", to: raga_path(@conn, :index) %>
