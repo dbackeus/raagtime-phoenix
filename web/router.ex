@@ -17,7 +17,9 @@ defmodule Raagtime.Router do
 
     get "/", RagaController, :index
 
-    resources "/ragas", RagaController
+    resources "/ragas", RagaController do
+      post "/clips", RagaController, :add_clip
+    end
   end
 
   # Other scopes may use custom stacks.

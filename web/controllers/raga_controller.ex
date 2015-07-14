@@ -2,6 +2,7 @@ defmodule Raagtime.RagaController do
   use Raagtime.Web, :controller
 
   alias Raagtime.Raga
+  alias Raagtime.Clip
 
   plug :scrub_params, "raga" when action in [:create, :update]
 
@@ -31,8 +32,9 @@ defmodule Raagtime.RagaController do
   end
 
   def show(conn, %{"id" => slug}) do
-    raga = Repo.get_by!(Raga, slug: slug)
-    render(conn, "show.html", raga: raga, title: "Raag #{raga.title}")
+    raga = Repo.get_by!(Raga, slug: slug) |> Repo.preload [:clips]
+    clip_changeset = Clip.changeset(%Clip{})
+    render(conn, "show.html", raga: raga, title: "Raag #{raga.title}", clip_changeset: clip_changeset)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -63,5 +65,42 @@ defmodule Raagtime.RagaController do
     conn
     |> put_flash(:info, "Raga deleted successfully.")
     |> redirect(to: raga_path(conn, :index))
+  end
+
+  def add_clip(conn, %{"raga_id" => slug, "clip" => clip_params}) do
+    raga = Repo.get_by!(Raga, slug: slug)
+
+    url = "http://www.youtube.com/oembed?url=#{clip_params["url"]}"
+    %HTTPotion.Response{body: body, status_code: status} = HTTPotion.get(url)
+
+    path = raga_path(conn, :show, raga.slug)
+
+    if status == 200 do
+      oembed_info = Poison.decode! body
+
+      changeset = Clip.changeset(%Clip{}, %{
+        raga_id: raga.id,
+        url: clip_params["url"],
+        title: oembed_info["title"],
+        thumbnail_url: oembed_info["thumbnail_url"],
+        embed_code: oembed_info["html"]
+      })
+
+      if changeset.valid? do
+        Repo.insert!(changeset)
+
+        conn
+        |> put_flash(:info, "The clip was successfully added.")
+        |> redirect(to: path)
+      else
+        conn
+        |> put_flash(:error, "Failed to add clip. Same clip had already been posted.")
+        |> redirect(to: path)
+      end
+    else
+      conn
+      |> put_flash(:error, "Failed to add clip. Please make sure it's a valid YouTube URL.")
+      |> redirect(to: path)
+    end
   end
 end
