@@ -16,6 +16,8 @@ defmodule Raagtime.Raga do
     field :description, :string
     field :slug, :string
 
+    has_many :clips, Raagtime.Clip
+
     timestamps
   end
 
