@@ -1,0 +1,5 @@
+- [ ] Youtube icons (with counter cache?)
+- [ ] Style add clip
+- [ ] Claviature?
+- [ ] Proper asset digests?
+- [ ] Caching
